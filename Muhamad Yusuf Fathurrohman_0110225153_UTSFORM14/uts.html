@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Registrasi Rekreasi Kuliner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Form Registrasi Rekreasi Kuliner</h2>
+        <form action="#" method="POST">
+            
+            <div class="form-group full-width-input">
+                <label for="nama_tempat">Nama Tempat Wisata:</label>
+                <div class="input-wrapper">
+                    <input type="text" id="nama_tempat" name="nama_tempat" required>
+                </div>
+            </div>
+
+            <div class="form-group short-input-group">
+                <label for="jenis_wisata">Jenis Wisata:</label>
+                <div class="input-wrapper">
+                    <select id="jenis_wisata" name="jenis_wisata" required>
+                        <option value="kedai_kopi" selected>Kedai Kopi</option>
+                        <option value="restoran">Restoran</option>
+                        <option value="warung_makan">Warung Makan</option>
+                        <option value="food_court">Food Court</option>
+                        <option value="lainnya">Lainnya</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group full-width-input">
+                <label for="deskripsi">Deskripsi Wisata:</label>
+                <div class="input-wrapper">
+                    <textarea id="deskripsi" name="deskripsi" rows="4" required></textarea>
+                </div>
+            </div>
+
+            <hr> 
+            
+            <div class="form-group short-input-group">
+                <label for="kontak_person">Kontak Person:</label>
+                <div class="input-wrapper">
+                    <input type="text" id="kontak_person" name="kontak_person" required>
+                </div>
+            </div>
+
+            <div class="form-group short-input-group">
+                <label for="no_telp">No HP/Telpon:</label>
+                <div class="input-wrapper">
+                    <input type="text" id="no_telp" name="no_telp" required>
+                </div>
+            </div>
+
+            <div class="form-group short-input-group">
+                <label for="email">Email:</label>
+                <div class="input-wrapper">
+                    <input type="email" id="email" name="email">
+                </div>
+            </div>
+
+            <div class="form-group web-group">
+                <label for="alamat_web">Alamat Web:</label>
+                <div class="input-container">
+                    <span class="url-prefix">http://</span>
+                    <input type="text" id="alamat_web" name="alamat_web">
+                </div>
+            </div>
+
+            <div class="form-group full-width-input">
+                <label for="alamat_lengkap">Alamat Lengkap:</label>
+                <div class="input-wrapper">
+                    <input type="text" id="alamat_lengkap" name="alamat_lengkap" required>
+                </div>
+            </div>
+
+            <div class="form-group lat-long-group">
+                <label for="lat_long">Latitude,Longitude:</label>
+                <div class="input-wrapper">
+                    <input type="text" id="lat_long" name="lat_long" placeholder="Contoh: -6.2088, 106.8456">
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" id="daftar-btn">Daftar</button>
+                <button type="reset" id="batal-btn">Batal</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('batal-btn').addEventListener('click', function(event) {
+            // Konfirmasi sebelum mereset
+            if (!confirm("Apakah Anda yakin ingin membatalkan dan menghapus semua input?")) {
+                event.preventDefault(); // Mencegah reset jika user membatalkan
+            }
+        });
+
+        // Contoh sederhana mencegah submit kosong untuk Nama Tempat Wisata
+        document.querySelector('form').addEventListener('submit', function(event) {
+            const namaTempat = document.getElementById('nama_tempat').value.trim();
+            if (namaTempat === "") {
+                alert("Nama Tempat Wisata harus diisi.");
+                event.preventDefault(); // Mencegah form disubmit
+            }
+        });
+    </script>
+
+</body>
+</html>
